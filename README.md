@@ -1,2 +1,1 @@
-# ds202-marvin
-a repository
+# ode to an academic advisor
