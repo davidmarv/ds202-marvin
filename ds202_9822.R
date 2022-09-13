@@ -29,13 +29,13 @@ dim(fbi)
 fbi$population
 summary(fbi$population)
 
-x = head(fbi, 10)$count
 
-fbi$variable
-fbi[, "variable"]
-x[rows, columns]
-x[1:5, 2:3]
-x[c(1,5,6), c("State","Year")]
-x$variable[rows]
+
+x = head(fbi, 10)$count
+mean(fbi$count, na.rm = TRUE)
+sd(fbi$count, na.rm = TRUE)
+x[1]
+
+
 
 #end of class
