@@ -17,7 +17,7 @@ ggplot(data = fbiwide, aes(x = log(burglary),
 
 
 ggplot(aes(x = log(burglary), y = log(motor_vehicle_theft),
-           colour=state), data=fbiwide, legend.position = "none") + geom_point()
+           colour=state), data=fbiwide) + geom_point() + theme(legend.position = "none")
 
 ggplot(aes(x = log(burglary), y = log(motor_vehicle_theft),
            colour=year), data=fbiwide) + geom_point()
@@ -26,4 +26,8 @@ ggplot(aes(x = log(burglary), y = log(motor_vehicle_theft),
            size=population), data=fbiwide) + geom_point()
 
 
+ggplot(data = fbiwide, aes( x = population, y = homicide, color = year)) + geom_point()
 
+
+library(plotly)
+ggplotly()
