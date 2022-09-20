@@ -32,6 +32,18 @@ ggplot(data = fbi, aes(x = type, y = log10(count))) +
 
 
 ggplot(data = fbiwide, aes(x=state_abbr, y = (motor_vehicle_theft/population*90000)))+geom_boxplot()
+
+ggplot(fbiwide, aes(x = motor_vehicle_theft)) + 
+  geom_histogram(binwidth=5000) +
+  ggtitle("binwidth = 5000")
+
+ggplot(fbi, aes(x = type)) + 
+  geom_bar(aes(weight= count)) +
+  coord_flip()
+
+
+
+
 summary(fbi)
 
 filter(fbi, year == 2014)
