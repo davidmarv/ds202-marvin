@@ -5,3 +5,34 @@ a < 20
 a^2 >100 | a^2 <10
 
 a == 1 | a==3
+a%%2 == 0
+
+library(classdata)
+head(fbiwide)
+
+library(ggplot2)
+ggplot(data = fbiwide, aes(x = year, y=population)) + geom_point()
+
+ggplot(data = fbiwide, aes(x = year, y=population)) + geom_point()+facet_wrap(~state_abbr)
+
+ggplot(data = fbiwide, aes(x = year, y=motor_vehicle_theft)) + geom_point()+facet_wrap(~state_abbr)
+
+ggplot(data = fbiwide, aes(x = year, y=motor_vehicle_theft/population)) + geom_point()+facet_wrap(~state_abbr)
+
+
+ggplot(data = fbiwide, aes(x = year, y=motor_vehicle_theft/population*90000)) + geom_point()+facet_wrap(~state_abbr)+ xlim(c(2010, 2020))
+
+
+ggplot(data = fbiwide, aes(x = year, y=property_crime/population)) + geom_point()+facet_wrap(~state_abbr)
+
+
+ggplot(data = fbi, aes(x = type, y = log10(count))) +
+  geom_boxplot() + 
+  coord_flip()
+
+
+ggplot(data = fbiwide, aes(x=state_abbr, y = (motor_vehicle_theft/population*90000)))+geom_boxplot()
+summary(fbi)
+
+filter(fbi, year == 2014)
+filter(fbi, type == "larceny", state %in% c("Iowa", "Minnesota"))
