@@ -7,8 +7,45 @@ a^2 >100 | a^2 <10
 a == 1 | a==3
 a%%2 == 0
 
+
+
+
+
 library(classdata)
 head(fbiwide)
+library(ggplot2)
+library(dplyr)
+
+dplyr::filter(fbi, year == 2014)
+dplyr::filter(fbi, type == "larceny", state %in% c("Iowa", "Minnesota"))
+
+nrow(fbi)
+
+iowa_crimes <- filter(fbi, state_abbr=="IA")
+
+dim(iowa_crimes)
+
+
+
+
+iowa_crimes%>%
+  filter(type == "homicide") %>%
+  ggplot(aes(x =year, y =count))+geom_point()
+
+
+
+
+ggplot(data = dplyr::filter(fbi, state == "Iowa"), aes(x = year, y=nrow(dplyr::filter(fbi, type == "burglary"))/population)) + geom_point()
+
+
+
+ggplot(data = dplyr::filter(fbiwide, year == 2020), aes(x = state, y=burglary)) + geom_point()
+
+
+
+ggplot(data = dplyr::filter(fbi, type == "homicide", year >= 2015 ), aes(x = year, y=population)) + geom_point()
+
+
 
 library(ggplot2)
 ggplot(data = fbiwide, aes(x = year, y=population)) + geom_point()
